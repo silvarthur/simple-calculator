@@ -1,0 +1,111 @@
+.outer-container {
+	display: grid;
+
+	/*
+	The fr unit allows you to set the size of a track as a fraction of the 
+	free space of the grid container. 
+
+	The outer grid has 1 column that measures one frame and 2 rows (1 row 
+	measuring 20% of its container size and 1 row measuring 1fr). The
+	gap between columns and between rows measures 10px.
+	*/
+	grid-template-columns: 1fr;
+	grid-template-rows: 20% 1fr;
+	grid-gap: 10px;
+
+	max-width: 50%;
+	min-width: 250px;
+	
+	/* The property below increases the left and right margins until it becomes centered along the y-axis of the viewport */
+	margin: 0 auto;
+}
+
+.inner-container {
+	display: grid;
+
+	/*
+	The fr unit allows you to set the size of a track as a fraction of the 
+	free space of the grid container. 
+
+	Our grid has 4 columns (each one measuring one fourth of the grid container)
+	and 7 rows (1 line measuring 50 pixels and 6 lines measuring 1fr). The
+	gap between columns and between rows measures 30px.
+	*/
+	grid-template-columns: 1fr 1fr 1fr 1fr; 
+	grid-template-rows: 50px, repeat(6, 1fr);
+	grid-gap: 30px;
+
+	background-color: rgb(203, 208, 216);
+
+	padding: 20px;
+}
+
+input {
+	padding: 10px;
+}
+
+button {
+	padding: 10px;
+
+	border-radius: 8px;
+	border-style: hidden;
+}
+
+
+button:hover {
+	background-color: rgb(227, 228, 229);
+}
+
+/* Disables the focus that remains around a button after clicking on it. */
+button:focus {
+	outline: none;
+}
+
+/* Elements located within the outter container. */
+#header {
+	grid-row: 1 / 2;
+
+	text-align: center;
+	font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#calculator {
+	grid-row: 2 / 3;
+}
+
+/* Elements located within the inner container. */
+#display {
+	grid-column: 1 / span 4;
+	grid-row: 1 / 2;
+
+	text-align: right;
+}
+
+/* FOURTH LINE */
+#one-btn {
+	grid-column: 1 / 2;
+}
+
+#two-btn {
+	grid-column: 2 / 3;
+}
+
+#three-btn {
+	grid-column: 3 / 4;
+}
+
+/* FOURTH LINE OF BUTTONS */
+#zero-btn {
+	grid-column: 1 / span 2;
+}
+
+#dot-btn {
+	grid-column: 3 / 4;
+}
+
+/* FIFTH LINE OF BUTTONS */ 
+#equals-sign-btn {
+	grid-column: 4 / 5;
+
+	grid-row: 5 / span 2;
+}
